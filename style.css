@@ -1,0 +1,81 @@
+body {
+    background-image: url(https://photo-cdn.urdupoint.com/media/2018/06/_3/730x425/pic_1528459463.jpg);
+    background-size: cover;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+}
+
+nav {
+    position: relative;
+    width: 600px;
+    height: 50px;
+    margin: 200px auto;
+    background-color: #333;
+    text-align: center;
+    border-radius: 8px;
+}
+
+nav a {
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    z-index: 1;
+    border-radius: 8px;
+}
+
+nav a:nth-child(1) {
+    width: 130px;
+}
+
+nav a:nth-child(2) {
+    width: 140px;
+}
+
+nav a:nth-child(3) {
+    width: 150px;
+}
+
+nav a:nth-child(4) {
+    width: 160px;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    z-index: 0;
+    border-radius: 8px;
+    transition: all linear 0.5s;
+}
+
+nav .fix,
+nav a:nth-child(1):hover~.menu {
+    left: 0;
+    width: 120px;
+    background-color: #0292e6;
+}
+
+nav a:nth-child(2):hover~.menu {
+    left: 125px;
+    width: 150px;
+    background-color: rgb(5, 241, 96);
+}
+
+nav a:nth-child(3):hover~.menu {
+    left: 265px;
+    width: 190px;
+    background-color: rgb(221, 245, 7);
+}
+
+nav a:nth-child(4):hover~.menu {
+    left: 420px;
+    width: 180px;
+    background-color: rgb(245, 43, 7);
+}

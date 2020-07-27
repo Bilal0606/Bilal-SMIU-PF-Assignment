@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question #2</title>
+
+    <style>
+        body {
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTBJ5Qo0tIbbXf86srsJczZ0qcZIQYx92TPjw&usqp=CAU);
+            background-size: 1400px;
+        }
+        
+        .Box {
+            margin-left: 35%;
+            width: 400px;
+            height: 300px;
+        }
+        
+        #btn1 {
+            width: 30%;
+            height: 10%;
+            border-radius: 20px;
+            color: white;
+            background: rgb(248, 184, 6);
+        }
+        
+        #Display {
+            background: white;
+        }
+        
+        nav {
+            position: relative;
+            width: 600px;
+            height: 50px;
+            margin: 60px auto;
+            background-color: #333;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        nav a {
+            position: relative;
+            display: inline-block;
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            line-height: 50px;
+            z-index: 1;
+            border-radius: 8px;
+        }
+        
+        nav a:nth-child(1) {
+            width: 130px;
+        }
+        
+        nav a:nth-child(2) {
+            width: 140px;
+        }
+        
+        nav a:nth-child(3) {
+            width: 150px;
+        }
+        
+        nav a:nth-child(4) {
+            width: 160px;
+        }
+        
+        .menu {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            z-index: 0;
+            border-radius: 8px;
+            transition: all linear 0.5s;
+        }
+        
+        nav a:nth-child(1):hover~.menu {
+            left: 0;
+            width: 120px;
+            background-color: #0292e6;
+        }
+        
+        nav a:nth-child(2):hover~.menu {
+            left: 125px;
+            width: 150px;
+            background-color: rgb(5, 241, 96);
+        }
+        
+        nav .fix,
+        nav a:nth-child(3):hover~.menu {
+            left: 265px;
+            width: 190px;
+            background-color: rgb(221, 245, 7);
+        }
+        
+        nav a:nth-child(4):hover~.menu {
+            left: 420px;
+            width: 180px;
+            background-color: rgb(245, 43, 7);
+        }
+    </style>
+</head>
+
+<body>
+    <marquee style="font-size: 30px;">Welcome to Temperatue converter website</marquee>
+
+    <nav>
+        <a href="Home.html">Home</a>
+        <a href="index1.html">Question #1</a>
+        <a href="index2.html">Question #2</a>
+        <a href="index3.html">Question #3</a>
+        <div class="menu fix"></div>
+    </nav>
+
+    <!-- Temperature Convert -->
+    <div class="Box">
+
+
+        <h2 style="font-size: 50px;">Select the value of temperature:</h2>
+
+        <br>
+        <br>
+
+        <label style="font-size: 30px;">Fahrenheit</label>
+        <input type="radio" name="tem" id="Fahrenheit">
+        <label style="font-size: 30px;">Celsius</label>
+        <input type="radio" name="tem" id="Celsius">
+        <label style="font-size: 30px;">Kelvin</label>
+        <input type="radio" name="tem" id="Kelvin">
+
+
+        <br>
+        <br>
+
+        <input type="Number" id="Temperature" style="font-size: 30px;">
+
+
+        <br>
+        <br>
+
+        <!-- Here we using Converter -->
+        <label style="font-size: 30px;">Fahrenheit</label>
+        <input type="radio" name="tem1" id="FahrenheitCon">
+        <label style="font-size: 30px;">Celsius</label>
+        <input type="radio" name="tem1" id="CelsiusCon">
+        <label style="font-size: 30px;">Kelvin</label>
+        <input type="radio" name="tem1" id="KelvinCon">
+
+        <br>
+        <br>
+
+        <input type="button" id="btn1" value="Convert" onclick="converter()" style="font-size: 20px;">
+        <br>
+
+        <h3 id="Display" style="font-size: 30px"></h3>
+    </div>
+
+    <!-- Using JavaScript -->
+    <script>
+        function startbtn() {
+            var btn = document.getElementById("btn1");
+            btn.addEventListener("click", converter, false);
+        }
+
+
+
+
+
+        function converter() {
+            var Tem = document.getElementById("Temperature").value;
+            var result = document.getElementById("Display");
+
+
+            //  Convert Fahrenhite into others
+            if (document.getElementById("Fahrenheit").checked) {
+
+                if (document.getElementById("CelsiusCon").checked) {
+                    result.innerHTML = "Fahrenheit Value " + " " + Tem + "℉" + " converted into Celsius " + ((Tem - 32) / 1.8) + "℃";
+                } else if (document.getElementById("KelvinCon").checked) {
+                    result.innerHTML = "Fahrenheit Value " + " " + Tem + "℉" + " converted into Kelvin " + (((Tem - 32) / 1.8) + 273.15) + "K";
+                }
+            }
+
+            //  Convert Celcius into others
+            if (document.getElementById("Celcius").checked) {
+
+                if (document.getElementById("FahrenheitCon").checked) {
+                    result.innerHTML = "Celsius Value " + " " + Tem + "℃" + " converted into Fahrenheit " + ((Tem * 1.8) + 32) + "℉";
+                } else if (document.getElementById("KelvinCon").checked) {
+                    result.innerHTML = "Celsius Value " + " " + Tem + "℃" + " converted into Kelvin " + (Tem + 273.15) + "K";
+                }
+            }
+
+            //  Convert Kelvin into others 
+            if (document.getElementById("Kelvin").checked) {
+
+                if (document.getElementById("FahrenheitCon").checked) {
+                    result.innerHTML = "Kelvin Value " + " " + Tem + "K" + " converted into Fahrenheit " + (((Tem - 273.15) * 1.8) + 32) + "℉";
+                } else if (document.getElementById("CelsiusCon").checked) {
+                    result.innerHTML = "Kelvin Value " + " " + Tem + "K" + " converted into Celsius " + (Tem - 273.15) + "℃";
+                }
+            }
+
+
+        }
+    </script>
+
+</body>
+
+</html>

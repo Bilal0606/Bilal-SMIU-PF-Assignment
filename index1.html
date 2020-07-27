@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question #1</title>
+
+    <style>
+        body {
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTBJ5Qo0tIbbXf86srsJczZ0qcZIQYx92TPjw&usqp=CAU);
+            background-size: 1450px;
+        }
+        
+        .Box {
+            margin-left: 36%;
+            text-align: center;
+            width: 400px;
+            height: 300px;
+        }
+        
+        .Box1 {
+            margin-left: 36%;
+            text-align: center;
+            width: 400px;
+            height: 300px;
+        }
+        
+        #btn1 {
+            width: 30%;
+            height: 10%;
+            border-radius: 20px;
+            color: white;
+            background: rgb(248, 184, 6);
+        }
+        
+        nav {
+            position: relative;
+            width: 600px;
+            height: 50px;
+            margin: 60px auto;
+            background-color: #333;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        nav a {
+            position: relative;
+            display: inline-block;
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            line-height: 50px;
+            z-index: 1;
+            border-radius: 8px;
+        }
+        
+        nav a:nth-child(1) {
+            width: 130px;
+        }
+        
+        nav a:nth-child(2) {
+            width: 140px;
+        }
+        
+        nav a:nth-child(3) {
+            width: 150px;
+        }
+        
+        nav a:nth-child(4) {
+            width: 160px;
+        }
+        
+        .menu {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            z-index: 0;
+            border-radius: 8px;
+            transition: all linear 0.5s;
+        }
+        
+        nav a:nth-child(1):hover~.menu {
+            left: 0;
+            width: 120px;
+            background-color: #0292e6;
+        }
+        
+        nav .fix,
+        nav a:nth-child(2):hover~.menu {
+            left: 125px;
+            width: 150px;
+            background-color: rgb(5, 241, 96);
+        }
+        
+        nav a:nth-child(3):hover~.menu {
+            left: 265px;
+            width: 190px;
+            background-color: rgb(221, 245, 7);
+        }
+        
+        nav a:nth-child(4):hover~.menu {
+            left: 420px;
+            width: 180px;
+            background-color: rgb(245, 43, 7);
+        }
+        
+        h1 {
+            font-size: 40px;
+        }
+        
+        .box {
+            margin-left: 10%;
+            text-align: center;
+            width: 400px;
+            height: 300px;
+            background-color: rgb(5, 241, 96);
+        }
+        
+        .button {
+            width: 30%;
+            height: 10%;
+            border-radius: 20px;
+            color: white;
+            background: rgb(248, 184, 6);
+        }
+        
+        h2 {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <marquee style="font-size: 30px;">For a given diagonal of a screen, calculate the following in real numbers: &nbsp; a. Area of Screen &nbsp; &nbsp; b. Aspect Ratio of the Screen
+    </marquee>
+
+    <nav>
+        <a href="Home.html">Home</a>
+        <a href="index1.html">Question #1</a>
+        <a href="index2.html">Question #2</a>
+        <a href="index3.html">Question #3</a>
+        <div class="menu fix"></div>
+    </nav>
+
+    <!-- Area of Screen -->
+    <div class="container">
+        <div class="row mb-4 ">
+            <div class="box">
+                <div class="box-body">
+                    <h2>Area of Screen </h2>
+                    <br />
+                    <div class="formItem">
+                        <label for="diagonal " style="font-size: 30px;">Enter Diagonal value</label>
+                        <br>
+                        <input type="text " class="form-control " id="diagonal ">
+                    </div>
+                    <br/>
+                    <div class="formItem">
+                        <label for="result " style="font-size: 30px;">Area:</label>
+                        <br>
+                        <input type="text " class="form-control" id="result " readonly>
+                    </div>
+                    <br/>
+                    <button type="submit " class="button" onclick="area() "> Calculate </button>
+                </div>
+            </div>
+
+            <!-- Aspect Ratio of the Screen -->
+            <div class="box ">
+                <div class="box-body ">
+                    <h2>Aspect Ratio </h2>
+                    <br />
+                    <div class="formItem ">
+                        <label for="diagonal11 " style="font-size: 30px;">Enter Diagonal value:</label>
+                        <br>
+                        <input type="text " class="form-control " id="diagonal11 ">
+                    </div>
+                    <br/>
+                    <div class="formItem ">
+                        <label for="lenght11 " style="font-size: 30px;">Enter length:</label>
+                        <br>
+                        <input type="text " class="form-control " id="lenght11 ">
+                    </div>
+                    <br/>
+                    <div class="formItem ">
+                        <label for="result11 " style="font-size: 30px;">Aspect Ratio:</label>
+                        <br>
+                        <input type="text " class="form-control" id="result11 " readonly>
+                    </div>
+                    <br/>
+                    <button type="submit " class="button" onclick="ratioAspect() "> Calculate </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Using JavaScript -->
+    <script>
+        function area() {
+            var length, width, Area;
+            diagonal = document.getElementById("diagonal ").value;
+
+            // Area = Diagonal²/2
+            Area = Math.sqrt(diagonal) / 2;
+            document.getElementById("result ").value = Area;
+            console.log('area')
+        }
+
+
+        function ratioAspect() {
+            var length, width, AspectRatio;
+            diagonal = document.getElementById("diagonal11 ").value;
+            length = document.getElementById("lenght11 ").value;
+
+            // lenght = diagonal / √(AR² + 1)
+            // AR = (√ diagonal² - length²) / length
+            AspectRatio = Math.sqrt(Math.pow(diagonal, 2) - Math.pow(length, 2)) / length;
+            document.getElementById("result11 ").value = AspectRatio;
+            console.log('ratioAspect')
+        }
+    </script>
+</body>
+
+</html>
